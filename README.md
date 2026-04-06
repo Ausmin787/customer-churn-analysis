@@ -39,6 +39,14 @@ Churned customers hold an average balance of €91,109 vs. €72,745 for retaine
 
 ---
 
+## Interactive Dashboard
+
+**Live:** https://customer-churn-dashboard-delta.vercel.app
+
+Built with Next.js + Recharts + shadcn/ui. Wired to real customer-level data (10,000 rows, papaparse CSV parsing).
+
+---
+
 ## Visualizations
 
 All charts saved to `outputs/`:
