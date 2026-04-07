@@ -1,3 +1,5 @@
+![CI](https://github.com/Ausmin787/customer-churn-analysis/actions/workflows/ci.yml/badge.svg)
+
 # Bank Customer Churn Analysis
 
 Exploratory data analysis on 10,000 bank customers to identify why customers leave — and what the data says about retention priorities.
