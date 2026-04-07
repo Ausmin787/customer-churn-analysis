@@ -46,12 +46,13 @@ customer-churn-analysis/
 
 ## Visualizations
 
-| File | Description |
-|------|-------------|
-| `outputs/finding1.png` | Churn rate by number of products — U-curve shape |
-| `outputs/finding2.png` | Churn rate by geography — Germany highlighted |
-| `outputs/finding3.png` | Age distribution KDE — churned vs. stayed |
-| `outputs/finding4.png` | Average balance comparison — churned vs. stayed |
+![Churn Rate by Number of Products](outputs/finding1.png)
+
+![Churn Rate by Geography](outputs/finding2.png)
+
+![Age Distribution — Churned vs. Stayed](outputs/finding3.png)
+
+![Average Balance — Churned vs. Stayed](outputs/finding4.png)
 
 ## How to Run
 
