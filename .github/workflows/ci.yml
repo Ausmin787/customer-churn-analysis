@@ -22,5 +22,16 @@ jobs:
       - name: Install dependencies
         run: pip install pandas matplotlib seaborn
 
+      - name: Build churn.db from CSV
+        run: |
+          python - <<'EOF'
+          import sqlite3, pandas as pd
+          df = pd.read_csv("churn_data.csv")
+          conn = sqlite3.connect("churn.db")
+          df.to_sql("customers", conn, if_exists="replace", index=False)
+          conn.close()
+          print(f"churn.db created — {len(df)} rows loaded into customers table")
+          EOF
+
       - name: Run analysis script
         run: python eda_visualizations.py
