@@ -20,10 +20,12 @@ conn.close()
 # Drop identifier columns per CLAUDE.md convention
 df.drop(columns=["RowNumber", "CustomerId", "Surname"], inplace=True)
 
-STAYED_COLOR  = "#2ecc71"
-CHURNED_COLOR = "#e74c3c"
+# fmt: off
+STAYED_COLOR    = "#2ecc71"
+CHURNED_COLOR   = "#e74c3c"
 HIGHLIGHT_COLOR = "#e74c3c"
 NEUTRAL_COLOR   = "#95a5a6"
+# fmt: on
 
 def clean_axes(ax):
     """Remove top and right spines, set white background."""
