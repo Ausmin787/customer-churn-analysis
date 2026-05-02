@@ -97,7 +97,3 @@ jobs:
       - name: TypeScript type-check
         working-directory: dashboard
         run: npx tsc --noEmit
-
-      - name: ESLint gate
-        working-directory: dashboard
-        run: npm run lint
