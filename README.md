@@ -70,7 +70,7 @@ customer-churn-analysis/
 ├── finding5_credit_score.py      # Finding 5: credit score distribution + Germany cross-tab
 ├── finding6_active_member.py     # Finding 6: active vs inactive churn by geo + balance
 ├── finding7_germany_deepdive.py  # Finding 7: Germany segmented by age + products
-├── model_logistic_regression.py  # Logistic regression model — ROC curve + coefficients
+├── model_logistic_regression.py  # Logistic regression model — ROC curve + feature coefficients + confusion matrix
 ├── churn_data.csv                # Cleaned dataset (677KB, 10,000 rows)
 ├── outputs/                      # 9 PNG visualizations
 ├── dashboard/                    # Next.js dashboard source (deployed to Vercel)
@@ -93,7 +93,9 @@ customer-churn-analysis/
 
 ![Germany Deep Dive](outputs/finding7_germany_deepdive.png)
 
-![ROC Curve — Logistic Regression](outputs/roc_curve.png)
+![ROC Curve and Feature Coefficients — Logistic Regression](outputs/roc_curve.png)
+
+![Confusion Matrix — Logistic Regression](outputs/confusion_matrix.png)
 
 ## How to Run
 
