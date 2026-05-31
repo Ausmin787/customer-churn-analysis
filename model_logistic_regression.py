@@ -5,7 +5,6 @@ Encodes categorical features, trains on 80% holdout, outputs ROC curve + feature
 
 import os
 import pandas as pd
-import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 from sklearn.linear_model import LogisticRegression
@@ -34,21 +33,23 @@ df.drop(columns=["Geography", "Gender"], inplace=True)
 X = df.drop(columns=["Exited"])
 y = df["Exited"]
 
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42, stratify=y)
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42, stratify=y
+)
 
 scaler = StandardScaler()
 X_train_sc = scaler.fit_transform(X_train)
-X_test_sc  = scaler.transform(X_test)
+X_test_sc = scaler.transform(X_test)
 
 model = LogisticRegression(class_weight="balanced", max_iter=1000, random_state=42)
 model.fit(X_train_sc, y_train)
 
-y_pred      = model.predict(X_test_sc)
-y_prob      = model.predict_proba(X_test_sc)[:, 1]
-accuracy    = accuracy_score(y_test, y_pred)
-precision   = precision_score(y_test, y_pred)
-recall      = recall_score(y_test, y_pred)
-roc_auc     = roc_auc_score(y_test, y_prob)
+y_pred = model.predict(X_test_sc)
+y_prob = model.predict_proba(X_test_sc)[:, 1]
+accuracy = accuracy_score(y_test, y_pred)
+precision = precision_score(y_test, y_pred)
+recall = recall_score(y_test, y_pred)
+roc_auc = roc_auc_score(y_test, y_prob)
 fpr, tpr, _ = roc_curve(y_test, y_prob)
 
 print(f"Accuracy:  {accuracy:.3f}")
@@ -78,7 +79,12 @@ ax = axes[0]
 colors = [POSITIVE_COLOR if c > 0 else NEGATIVE_COLOR for c in coef_df["Coefficient"]]
 ax.barh(coef_df["Feature"], coef_df["Coefficient"], color=colors, edgecolor="white", linewidth=1.2)
 ax.axvline(0, color="#2c3e50", linewidth=0.9, linestyle="--")
-ax.set_title("Logistic Regression — Feature Coefficients\n(Standardized)", fontsize=13, fontweight="bold", color="#2c3e50")
+ax.set_title(
+    "Logistic Regression — Feature Coefficients\n(Standardized)",
+    fontsize=13,
+    fontweight="bold",
+    color="#2c3e50",
+)
 ax.set_xlabel("Coefficient (standardized scale)", fontsize=11)
 pos_patch = mpatches.Patch(color=POSITIVE_COLOR, label="Increases churn risk")
 neg_patch = mpatches.Patch(color=NEGATIVE_COLOR, label="Reduces churn risk")
@@ -91,7 +97,9 @@ ax.plot([0, 1], [0, 1], color="#bdc3c7", linewidth=1.5, linestyle="--", label="R
 ax.fill_between(fpr, tpr, alpha=0.08, color=ROC_COLOR)
 ax.set_title(
     f"ROC Curve — Logistic Regression\nAccuracy: {accuracy:.1%}  |  Recall: {recall:.1%}  |  Precision: {precision:.1%}",
-    fontsize=13, fontweight="bold", color="#2c3e50",
+    fontsize=13,
+    fontweight="bold",
+    color="#2c3e50",
 )
 ax.set_xlabel("False Positive Rate", fontsize=11)
 ax.set_ylabel("True Positive Rate", fontsize=11)
