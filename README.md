@@ -1,3 +1,6 @@
+![Customer Churn: 10,000 bank customers, one dot each, stacked by age. 7,963 stayed above the line, average age 37.4. 2,037 left below it, average age 44.8.](docs/banner-dark.png#gh-dark-mode-only)
+![Customer Churn: 10,000 bank customers, one dot each, stacked by age. 7,963 stayed above the line, average age 37.4. 2,037 left below it, average age 44.8.](docs/banner-light.png#gh-light-mode-only)
+
 ![CI](https://github.com/Ausmin787/customer-churn-analysis/actions/workflows/ci.yml/badge.svg)
 
 # Customer Churn Analysis
